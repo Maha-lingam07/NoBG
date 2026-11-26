@@ -7,7 +7,6 @@
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.2%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Deploy to Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=000)](https://render.com/)
 
 </div>
 
@@ -40,7 +39,6 @@ Upload a photo, preview the cutout over a transparent or custom solid-color back
 | **ML / Inference** | PyTorch (`RMBG` / `IS-Net` architecture) |
 | **Image Processing** | Pillow (PIL), HTML5 Canvas |
 | **Frontend** | Vanilla HTML5, CSS3, JavaScript |
-| **Deployment** | Render (`render.yaml` + `build.sh`), Git LFS |
 
 ---
 
@@ -53,8 +51,6 @@ NoBG/
 ├── index.html                 # Single-page studio UI (upload, color picker, preview, export)
 ├── requirements.txt           # Python dependencies
 ├── rmbg14_model_weights.pth   # BRIA RMBG 1.4 pretrained weights (~176.6 MB, tracked via Git LFS)
-├── render.yaml                # Render Blueprint configuration
-├── build.sh                   # Render build script (CPU PyTorch + LFS weight fallback)
 └── README.md
 ```
 
@@ -116,7 +112,7 @@ Open **<http://127.0.0.1:8000>** in your browser. On startup, the server loads `
 | Environment Variable | Default | Description |
 | :--- | :--- | :--- |
 | `RMBG_WEIGHTS` | `./rmbg14_model_weights.pth` | Custom path to the `.pth` model weights file. |
-| `RMBG_CPU_THREADS` | `min(8, cpu_count)` | Number of PyTorch CPU threads (`2` in `render.yaml`). |
+| `RMBG_CPU_THREADS` | `min(8, cpu_count)` | Number of PyTorch CPU threads. |
 
 ---
 
