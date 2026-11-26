@@ -111,30 +111,6 @@ Open **<http://127.0.0.1:8000>** in your browser. On startup, the server loads `
 
 ---
 
-## Deploying to Render
-
-This repository is pre-configured for **Render** via [`render.yaml`](render.yaml) and [`build.sh`](build.sh).
-
-### Option 1: Deploy via Render Blueprint (Recommended)
-
-1. Push this repository to GitHub.
-2. Go to the [Render Dashboard](https://dashboard.render.com/) and click **New + → Blueprint**.
-3. Connect your `Maha-lingam07/NoBG` repository.
-4. Render will automatically detect `render.yaml`, install **CPU-only PyTorch**, fetch the RMBG 1.4 weights if Git LFS pointers weren't expanded, and start Uvicorn on `$PORT` with health checks on `/api/health`.
-
-### Option 2: Manual Web Service Setup
-
-If you prefer configuring a Render Web Service manually:
-
-- **Runtime:** `Python 3`
-- **Build Command:** `chmod +x build.sh && ./build.sh`
-- **Start Command:** `uvicorn app:app --host 0.0.0.0 --port $PORT`
-- **Health Check Path:** `/api/health`
-
-> **Memory Note:** Running PyTorch with `1024 × 1024` `IS-Net` inference alongside the ~176 MB checkpoint can approach the **512 MB RAM** limit on Render's Free tier. If you experience out-of-memory restarts under load, upgrade the Render instance to **Starter** or higher.
-
----
-
 ## Configuration
 
 | Environment Variable | Default | Description |
